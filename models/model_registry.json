@@ -1,0 +1,26 @@
+{
+  "registry_version": 1,
+  "project": "Agricultural Field Carbon Credit Estimation using coupling of Satellite Embeddings and RAG",
+  "production_crop_classifier": null,
+  "production_burn_scar_model": {
+    "model_id": "sentinel2-dnbr-screening",
+    "version": "1.0.0",
+    "artifact": "sentinel2_screening_v1.json",
+    "artifact_type": "deterministic screening configuration",
+    "validation_status": "prototype_not_locally_validated"
+  },
+  "legacy_artifacts": [
+    {
+      "path": "crop_classifier.joblib",
+      "status": "retired_demo_only",
+      "reason": "Trained on the synthetic US-crop reference dataset; not valid for Haryana classification."
+    }
+  ],
+  "promotion_requirements": [
+    "Haryana field-verified training and independent holdout labels",
+    "Documented spatial and temporal leakage controls",
+    "Per-class precision, recall, F1, and uncertainty reporting",
+    "Independent validation of burn-scar signals against field and/or accepted reference observations",
+    "A separately approved carbon methodology before any credit or emissions claim"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "registry_version": 1,
+  "project": "Agricultural Field Carbon Credit Estimation using coupling of Satellite Embeddings and RAG",
+  "current_inputs": [
+    {
+      "name": "farmer_field_boundary",
+      "location": "input_farmboundary/",
+      "formats": [
+        "GeoJSON",
+        "ESRI Shapefile",
+        "CSV bounding box"
+      ],
+      "coordinate_reference": "WGS84/EPSG:4326 after input normalization",
+      "contains_personal_or_farmer_data": "may_contain",
+      "ground_truth": false,
+      "schema": "data/schemas/boundary_request.schema.json"
+    },
+    {
+      "name": "sentinel2_l2a",
+      "provider": "Microsoft Planetary Computer STAC",
+      "collection": "sentinel-2-l2a",
+      "bands_used": [
+        "B04",
+        "B08",
+        "B12",
+        "SCL"
+      ],
+      "ground_truth": false
+    }
+  ],
+  "current_outputs": [
+    {
+      "name": "agricultural_field_carbon_credit_screening_report",
+      "location": "outputs/farm_boundary_reports/",
+      "schema": "data/schemas/screening_report.schema.json",
+      "ground_truth": false
+    }
+  ],
+  "legacy_datasets": [
+    {
+      "path": "data/fao_crop_reference.csv",
+      "status": "synthetic_legacy_demo_not_ground_truth",
+      "use_in_current_pipeline": false,
+      "contents": "Generated US crop names and coordinates; not Haryana observations."
+    },
+    {
+      "path": "data/satellite_embeddings.npy",
+      "status": "legacy_demo_feature_matrix",
+      "use_in_current_pipeline": false,
+      "contents": "Tabular demonstration features, not Sentinel-2 pixel or time-series embeddings."
+    }
+  ],
+  "missing_for_validated_crop_model": [
+    "Haryana field-level crop labels with source and collection dates",
+    "Independent spatial and temporal validation labels",
+    "Documented licensing, provenance, and quality checks"
+  ]
+}

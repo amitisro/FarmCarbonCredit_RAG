@@ -1,0 +1,14 @@
+.venv/
+*.zip
+__pycache__/
+*.py[cod]
+.pytest_cache/
+outputs/*.pdf
+outputs/farm_boundary_reports/
+outputs/request_queue.sqlite3
+outputs/mlruns/
+outputs/mlflow.db
+outputs/mlflow.db-*
+input_farmboundary/*
+!input_farmboundary/examples/
+!input_farmboundary/examples/**
