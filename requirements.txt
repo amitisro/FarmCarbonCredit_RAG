@@ -1,0 +1,38 @@
+# Data and ML libraries from the provided AI/ML engineering cheat sheet.
+numpy
+pandas
+polars
+scikit-learn
+xgboost
+optuna
+torch
+transformers
+peft
+sentence-transformers
+faiss-cpu
+llama-index
+
+# Workflow, API, tracking, and evaluation.
+langgraph
+pydantic
+fastapi
+uvicorn[standard]
+mlflow
+ragas
+reportlab
+
+# Boundary parsing and Sentinel-2 COG/STAC access.
+shapely
+pyproj
+pyshp
+rasterio
+pystac-client
+planetary-computer
+
+# vLLM does not support native Windows. It is installed only in Linux environments.
+vllm; sys_platform == "linux"
+
+# Focused tests.
+pytest
+jsonschema
+notebook

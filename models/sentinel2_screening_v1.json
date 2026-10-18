@@ -1,0 +1,46 @@
+{
+  "project_name": "Agricultural Field Carbon Credit Estimation using coupling of Satellite Embeddings and RAG",
+  "model_id": "sentinel2-dnbr-screening",
+  "version": "1.0.0",
+  "model_type": "deterministic_spectral_screening_rule",
+  "method": "seasonal_median_nbr_difference",
+  "description": "A provisional Sentinel-2 L2A burn-scar screening heuristic. It is not a trained crop classifier or a verified stubble-burning detector.",
+  "dnbr_threshold": 0.15,
+  "cloud_cover_limit_percent": 80.0,
+  "max_scenes_per_window": 3,
+  "analysis_years": 5,
+  "pre_window": {
+    "start": "09-15",
+    "end": "10-15"
+  },
+  "post_window": {
+    "start": "10-16",
+    "end": "11-30"
+  },
+  "excluded_scl_classes": [
+    0,
+    1,
+    3,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "reflectance_scale": 10000.0,
+  "formula": {
+    "nbr": "(B08 - B12) / (B08 + B12)",
+    "dnbr": "median(pre_window NBR) - median(post_window NBR)"
+  },
+  "statuses": [
+    "possible_burn_scar_signal",
+    "burn_scar_not_detected",
+    "indeterminate"
+  ],
+  "limitations": [
+    "The threshold is a screening parameter and is not locally calibrated against Haryana field observations.",
+    "A possible burn-scar signal does not prove crop-residue burning.",
+    "Failure to detect a signal does not prove that burning did not occur.",
+    "No crop class, emissions reduction, or carbon-credit eligibility is predicted."
+  ]
+}
